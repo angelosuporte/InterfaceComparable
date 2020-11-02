@@ -1,8 +1,9 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 
 namespace InterfaceComparable.Entities
 {
-    class Funcionario
+    class Funcionario : IComparable
     {
         public string Nome { get; set; }
         public double Salario { get; set; }
@@ -17,6 +18,16 @@ namespace InterfaceComparable.Entities
         public override string ToString()
         {
             return Nome + ", " + Salario.ToString("F2", CultureInfo.InvariantCulture);
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (!(obj is Funcionario))
+            {
+                throw new ArgumentException("Erro de comparação: o argumento não é funcionário");
+            }
+            Funcionario outro = obj as Funcionario;
+            return Nome.CompareTo(outro.Nome);
         }
     }
 }
