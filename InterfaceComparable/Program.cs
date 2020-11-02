@@ -19,7 +19,14 @@ namespace InterfaceComparable
                     {
                         lista.Add(sr.ReadLine());
                     }
+
+                    lista.Sort();
+                    foreach (string str in lista)
+                    {
+                        Console.WriteLine(str);
+                    }
                 }
+                Console.ReadKey();
             }
             catch (IOException e)
             {
