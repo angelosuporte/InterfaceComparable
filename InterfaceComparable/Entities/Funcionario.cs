@@ -27,7 +27,7 @@ namespace InterfaceComparable.Entities
                 throw new ArgumentException("Erro de comparação: o argumento não é funcionário");
             }
             Funcionario outro = obj as Funcionario;
-            return Nome.CompareTo(outro.Nome);
+            return Salario.CompareTo(outro.Salario);
         }
     }
 }
