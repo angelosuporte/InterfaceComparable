@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using InterfaceComparable.Entities;
 
 namespace InterfaceComparable
 {
@@ -8,22 +9,22 @@ namespace InterfaceComparable
     {
         static void Main(string[] args)
         {
-            string caminho = @"c:\EstudoTI\teste\comparable.txt";
+            string caminho = @"c:\EstudoTI\teste\comparableFuncionario.txt";
 
             try
             {
                 using (StreamReader sr = File.OpenText(caminho))
                 {
-                    List<string> lista = new List<string>();
+                    List<Funcionario> lista = new List<Funcionario>();
                     while (!sr.EndOfStream)
                     {
-                        lista.Add(sr.ReadLine());
+                        lista.Add(new Funcionario(sr.ReadLine()));
                     }
 
                     lista.Sort();
-                    foreach (string str in lista)
+                    foreach (Funcionario funcionario in lista)
                     {
-                        Console.WriteLine(str);
+                        Console.WriteLine(funcionario);
                     }
                 }
                 Console.ReadKey();
